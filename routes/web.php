@@ -15,6 +15,6 @@ $router->get('/', function () use ($router) {
     // return $router->app->version();
 });
 
-$router->group(['prefix'=>'api/'], function() use($router){
-  $router->get('get_lunar_shipment_time','shipmentController@getDeliveryTime');
+$router->group(['prefix' => 'api/'], function () use ($router) {
+    $router->get('get_lunar_shipment_time', 'shipmentController@getDeliveryTime');
 });

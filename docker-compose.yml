@@ -7,6 +7,6 @@ services:
     volumes:
       - .:/var/www/html
       - /var/www/html/shipment-service/
-    build: Dockerfile
+    build: .
     command: php -S lumen:8005 -t public
     restart: always

@@ -17,9 +17,9 @@ class shipmentController extends Controller
      *         in="query",
      *         description="The earth_time parameter in path",
      *         required=true,
-     *         
+     *
      *     ),
- *     @OA\Response(
+     *     @OA\Response(
      *         response="200",
      *         description="ok",
      *         content={
@@ -50,7 +50,7 @@ class shipmentController extends Controller
      *             )
      *         }
      *     ),
-  *     @OA\Response(
+     *     @OA\Response(
      *         response="400",
      *         description="Validation Error",
      *         content={
@@ -78,10 +78,12 @@ class shipmentController extends Controller
      * )
      */
 
-    public function getDeliveryTime(Request $request)
+    public function getDeliveryTime(Request $request): \Illuminate\Http\JsonResponse
     {
         $validator = Validator::make($request->all(), [
-            'earth_time' => 'required'
+            'earth_time' => 'required|date_fotmat_validation'
+        ], [
+            'date_fotmat_validation' => 'Please provide the date in the following format. Y-m-d H:i:s',
         ]);
 
         if ($validator->fails()) {
