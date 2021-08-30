@@ -43,8 +43,9 @@
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-install-cmd": [
-            "@php php artisan swagger-lume:generate",
-            "@php php artisan swagger-lume:publish",
+            "php artisan swagger-lume:publish-config",
+            "php artisan swagger-lume:generate",
+            "php artisan swagger-lume:publish",
             "cp -a vendor/swagger-api/swagger-ui/dist public/swagger-ui-assets"
         ]
     }

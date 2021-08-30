@@ -9,4 +9,5 @@ services:
       - /var/www/html/shipment-service/
     build: .
     command: php -S lumen:8005 -t public
+
     restart: always
